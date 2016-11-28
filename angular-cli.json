@@ -17,10 +17,18 @@
       "styles": [
         "styles.css",
         "assets/template/assets/css/styles.css",
-        "assets/template/assets/plugins/font-awesome/css/font-awesome.min.css"
+        "assets/template/assets/plugins/font-awesome/css/font-awesome.min.css",
+        "assets/template/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.min.css"
 
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/template/assets/bootstrap/js/bootstrap.min.js",
+        "assets/template/assets/plugins/chart-js/Chart.min.js",
+        "assets/template/assets/plugins/count-to/jquery.countTo.js",
+        "assets/template/assets/plugins/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js",
+        "assets/template/assets/js/custom.js"
+
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
