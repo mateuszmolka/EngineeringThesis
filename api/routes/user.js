@@ -14,7 +14,11 @@ router.post('/create', function(req, res, next){
         email: req.body.email,
         userName: req.body.userName,
         password: passwordHash.generate(req.body.password),
-        type: req.body.type
+        type: req.body.type,
+        imagename: req.body.imagename,
+        imageext: req.body.imageext
+
+
     });
 
     user.save(function(err, result){
@@ -145,6 +149,8 @@ router.delete('/delete/:userName', function (req, res, next) {
   })
 
 });
+
+
 
 
 

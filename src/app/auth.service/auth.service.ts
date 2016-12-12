@@ -52,6 +52,8 @@ export class AuthService {
             user.userName,
             user.password,
             user.type,
+            user.imagename,
+            user.imageext
             )
           );
         }

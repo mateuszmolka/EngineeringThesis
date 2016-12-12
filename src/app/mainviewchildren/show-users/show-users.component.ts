@@ -26,12 +26,12 @@ export class ShowUsersComponent implements OnInit {
       .subscribe(
         (users: User[])=>{
           this.users=users;
+          console.log(this.users);
         }
       );
     this.authService.getCurrentUser()
       .subscribe((data)=>{
         //noinspection TypeScriptUnresolvedVariable
-        console.log(data.obj.type);
         //noinspection TypeScriptUnresolvedVariable
         if(data.obj.type==='Master designer'){
           this.isMaster=true;

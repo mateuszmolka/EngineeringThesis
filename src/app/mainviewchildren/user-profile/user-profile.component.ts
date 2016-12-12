@@ -9,7 +9,7 @@ import {User} from "../../auth.service/user.model";
 })
 export class UserProfileComponent implements OnInit {
   userName: string;
-  user: User = {firstName: '', lastName: '', email: '', userName: '',password: '',type: ''};
+  user: User = {firstName: '', lastName: '', email: '', userName: '',password: '',type: '', imagename: '', imageext: ''};
   constructor(private route: ActivatedRoute,private router: Router,private authService: AuthService) { // 2
 
   }
@@ -24,7 +24,7 @@ export class UserProfileComponent implements OnInit {
         //noinspection TypeScriptUnresolvedVariable
         //noinspection TypeScriptUnresolvedVariable
         var object=data.obj[0];
-        this.user=new User(object.firstName,object.lastName,object.email,object.userName,object.password,object.type);
+        this.user=new User(object.firstName,object.lastName,object.email,object.userName,object.password,object.type, object.imagename, object.imageext);
         //noinspection TypeScriptUnresolvedVariable
       },
       (error)=>{

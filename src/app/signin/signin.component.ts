@@ -15,7 +15,7 @@ export class SigninComponent implements OnInit {
 
   constructor(private authService: AuthService,private  router: Router) { }
   onSubmit() {
-    const user = new User(null,null,this.myForm.value.email,null,this.myForm.value.password,null);
+    const user = new User(null,null,this.myForm.value.email,null,this.myForm.value.password,null,null,null);
     console.log(user);
     this.authService.signin(user)
       .subscribe(

@@ -16,6 +16,9 @@ import { CreateUserComponent } from './mainviewchildren/create-user/create-user.
 import { ShowUsersComponent } from './mainviewchildren/show-users/show-users.component';
 import { UserOneComponent } from './mainviewchildren/user-one/user-one.component';
 import { UserProfileComponent } from './mainviewchildren/user-profile/user-profile.component';
+import {Ng2UploaderModule} from "ng2-uploader";
+import { TestComponentComponent } from './mainviewchildren/test-component/test-component.component';
+import {FileSelectDirective, FileUploader} from 'ng2-file-upload';
 
 
 @NgModule({
@@ -30,7 +33,9 @@ import { UserProfileComponent } from './mainviewchildren/user-profile/user-profi
     CreateUserComponent,
     ShowUsersComponent,
     UserOneComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    TestComponentComponent,
+    FileSelectDirective
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { UserProfileComponent } from './mainviewchildren/user-profile/user-profi
     HttpModule,
     FormsModule,
     routing,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2UploaderModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

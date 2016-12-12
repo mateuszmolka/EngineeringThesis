@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../auth.service/auth.service";
 import { Router} from "@angular/router";
+import {User} from "../auth.service/user.model";
 
 @Component({
   selector: 'app-mainview',
@@ -12,8 +13,6 @@ export class MainviewComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {
 
   }
-
-
 
   ngOnInit() {
   this.isLoggedIn= this.authService.isLoggedIn();

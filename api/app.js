@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 
 
 var userRoutes = require('./routes/user');
+var uploadRoutes = require('./routes/upload');
 
 var app = express();
 mongoose.connect('localhost:27017/cadmanager');
@@ -19,9 +20,10 @@ server.listen('3000', function(){
 })
 
 app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE'),
-      res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept' );
+    res.setHeader('Access-Control-Allow-Headers','Origin, X-Requested-With, Content-Type, Accept' );
+  res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
 
@@ -34,6 +36,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/user', userRoutes);
+app.use('/upload', uploadRoutes);
 
 
 // catch 404 and forward to error handler

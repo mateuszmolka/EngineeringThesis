@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, Validators, FormControl} from "@angular/forms";
 import {User} from "../../auth.service/user.model";
 import {AuthService} from "../../auth.service/auth.service";
+import { FileSelectDirective, FileDropDirective, FileUploader } from 'ng2-file-upload';
+
+const URL = 'http://localhost:3000/upload';
 
 @Component({
   selector: 'app-create-user',
@@ -10,24 +13,39 @@ import {AuthService} from "../../auth.service/auth.service";
 export class CreateUserComponent implements OnInit {
 
   myForm: FormGroup;
+  public uploader:FileUploader = new FileUploader({url: URL})
 
   constructor(private authService: AuthService) { }
 
+
   onSubmit() {
+    console.log(this.uploader.queue[0].file.name.split('.')[0]);
+    console.log(this.uploader.queue[0].file.name.split('.')[1]);
     const user = new User(
       this.myForm.value.firstName,
       this.myForm.value.lastName,
       this.myForm.value.email,
       this.myForm.value.userName,
       this.myForm.value.password,
-      this.myForm.value.type
+      this.myForm.value.type,
+      this.uploader.queue[0].file.name.split('.')[0],
+      this.uploader.queue[0].file.name.split('.')[1]
     );
     this.authService.createUser(user)
       .subscribe(
-        data => console.log(data),
+        data => {
+          console.log(data);
+          //noinspection TypeScriptUnresolvedVariable
+          let userId = data.obj._id;
+          let element= this.uploader.queue[0];
+          element.url=URL + '/?id='+userId;
+          element.upload();
+
+        },
         error => console.error(error)
       );
     this.myForm.reset();
+
   }
 
   ngOnInit() {
