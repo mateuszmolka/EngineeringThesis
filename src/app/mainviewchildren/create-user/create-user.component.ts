@@ -36,9 +36,10 @@ export class CreateUserComponent implements OnInit {
         data => {
           console.log(data);
           //noinspection TypeScriptUnresolvedVariable
-          let userId = data.obj._id;
+          let userName = data.obj.userName;
           let element= this.uploader.queue[0];
-          element.url=URL + '/?id='+userId;
+          console.log(element);
+          element.url=URL + '/?userName='+userName;
           element.upload();
 
         },

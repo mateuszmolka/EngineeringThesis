@@ -6,6 +6,8 @@ import {CreateUserComponent} from "./create-user/create-user.component";
 import {ShowUsersComponent} from "./show-users/show-users.component";
 import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {TestComponentComponent} from "./test-component/test-component.component";
+import {CreateProjectComponent} from "./create-project/create-project.component";
+import {ShowProjectsComponent} from "./show-projects/show-projects.component";
 
 
 export const MAIN_ROUTES: Routes = [
@@ -23,8 +25,11 @@ export const MAIN_ROUTES: Routes = [
   { path: 'user-profile/:username',
     component: UserProfileComponent
     },
-  { path: 'test',
-    component: TestComponentComponent
+  { path: 'project-create',
+    component: CreateProjectComponent
+  },
+  { path: 'project-show',
+    component: ShowProjectsComponent
   },
   { path: '**',
    component: PageNotFoundComponent }

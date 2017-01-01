@@ -30,10 +30,6 @@
                         : activate to sort column ascending" style="width: 273px;">
             Project
           </th><th class="sorting" tabindex="0" aria-controls="datatables__example" rowspan="1" colspan="1" aria-label="
-                          Last login
-                        : activate to sort column ascending" style="width: 250px;">
-            Last file
-          </th><th class="sorting" tabindex="0" aria-controls="datatables__example" rowspan="1" colspan="1" aria-label="
                           Status
                         : activate to sort column ascending" style="width: 171px;">
             Contact
@@ -49,15 +45,12 @@
                   *ngFor="let user of users">
                 <td class="sorting_1">
                   <div class="table__avatar">
-                    <img src="../../../../api/images/{{user.id}}/{{user.imagename}}.{{user.imageext}}" alt="...">
+                    <img src="http://127.0.0.1:8080/api/images/{{user.userName}}/{{user.imagename}}.{{user.imageext}}" alt="...">
                   </div>
                   <strong><a [routerLink]="['/main','user-profile',user.userName]">{{user.firstName}} {{user.lastName}}</a></strong>
                 </td>
                 <td>
                   {{user.type}}
-                </td>
-                <td>
-                  -----------
                 </td>
                 <td>
                   -----------

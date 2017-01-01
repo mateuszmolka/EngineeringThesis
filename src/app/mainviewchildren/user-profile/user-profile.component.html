@@ -11,7 +11,7 @@
     </div>
     <div class="panel-body">
       <div class="profile__avatar">
-        <img src="http://www.cyfraplus.pl/ms_galeria/fotostar/3032_c.jpg" alt="...">
+        <img src="http://127.0.0.1:8080/api/images/{{user.userName}}/{{user.imagename}}.{{user.imageext}}" alt="...">
       </div>
       <div class="profile__header">
         <h4>{{user.firstName}} {{user.lastName}}<small *ngIf="isMaster"> Master designer</small> <small *ngIf="!isMaster">Designer</small></h4>

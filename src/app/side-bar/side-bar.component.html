@@ -10,7 +10,7 @@
 
     <!-- Sidebar user avatar -->
     <div class="sidebar-user__avatar">
-      <img src="http://www.cyfraplus.pl/ms_galeria/fotostar/3032_c.jpg" alt="...">
+      <img src="http://127.0.0.1:8080/api/images/{{user.userName}}/{{user.imagename}}.{{user.imageext}}" alt="...">
     </div>
 
     <!-- Sidebar user info -->
@@ -57,10 +57,10 @@
       <!-- Projects -->
       <li class="sidebar-nav__heading">PROJETS</li>
       <li>
-        <a href="#"><i class="fa fa-table"></i> Projects <i class="fa"></i></a>
+        <a routerLinkActive="active" [routerLink]="['project-show']"><i class="fa fa-table"></i> Projects <i class="fa"></i></a>
       </li>
       <li>
-        <a href="#"><i class="fa fa-table"></i> Add project <i class="fa"></i></a>
+        <a routerLinkActive="active" [routerLink]="['project-create']"><i class="fa fa-table"></i> Add project <i class="fa"></i></a>
       </li>
     </ul>
   </nav>
