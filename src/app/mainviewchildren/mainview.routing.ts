@@ -8,6 +8,8 @@ import {UserProfileComponent} from "./user-profile/user-profile.component";
 import {TestComponentComponent} from "./test-component/test-component.component";
 import {CreateProjectComponent} from "./create-project/create-project.component";
 import {ShowProjectsComponent} from "./show-projects/show-projects.component";
+import {ProjectFilesComponent} from "./project-files/project-files.component";
+import {UserFilesComponent} from "./user-files/user-files.component";
 
 
 export const MAIN_ROUTES: Routes = [
@@ -30,6 +32,12 @@ export const MAIN_ROUTES: Routes = [
   },
   { path: 'project-show',
     component: ShowProjectsComponent
+  },
+  { path: 'user-files/:fileUser',
+    component: UserFilesComponent
+  },
+  { path: 'project-files/:projectName',
+    component: ProjectFilesComponent
   },
   { path: '**',
    component: PageNotFoundComponent }

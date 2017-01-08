@@ -11,6 +11,7 @@ export class ShowUsersComponent implements OnInit {
   users: User[];
   constructor(private authService: AuthService) { }
 
+
   onDelete(user: User){
     var accept= confirm("Are you sure?");
     if(accept){

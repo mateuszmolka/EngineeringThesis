@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar" style="position:fixed">
 
   <!-- Close button (mobile devices) -->
   <div class="sidebar__close">
@@ -29,7 +29,7 @@
         <a routerLinkActive="active" [routerLink]="['user-current']"><i class="fa fa-user"></i> Profile</a>
       </li>
       <li>
-        <a href="edit-profile.html"><i class="fa fa-edit"></i> Public files</a>
+        <a routerLinkActive="active" [routerLink]="['/main','user-files',user.userName]"><i class="fa fa-edit"></i> Your files</a>
       </li>
       <li>
         <a href="#" (click)="onLogout()"><i class="fa fa-sign-out"></i> Sign out</a>

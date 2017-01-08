@@ -5,6 +5,8 @@ var router = express.Router();
 var User = require('../models/user');
 var passwordHash = require('password-hash');
 var jwt = require('jsonwebtoken');
+var rmdir = require('rmdir');
+var DIR = "./images/";
 
 router.post('/create', function(req, res, next){
     console.log(req.body);
@@ -127,6 +129,8 @@ router.get('/getuser/:userName', function (req,res,next) {
 
 router.delete('/delete/:userName', function (req, res, next) {
   var userName=  req.params.userName;
+  var finalDir= DIR+userName;
+
   User.find({userName: userName}, function (err,user) {
     if (err) {
       return res.status(500).json({
@@ -141,14 +145,26 @@ router.delete('/delete/:userName', function (req, res, next) {
           error: err
         });
       }
+      rmdir(finalDir, function (err, dirs, files) {
+        console.log(finalDir);
+      });
       res.status(200).json({
         message: 'Deleted user',
         obj: result
       });
     });
   })
-
 });
+/*
+fs.unlink('/images/'+userName, function(err,user){
+  if (err) {
+    return res.status(500).json({
+      title: 'An error occurred',
+      error: err
+    });
+  }
+});
+*/
 
 
 

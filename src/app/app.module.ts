@@ -22,6 +22,9 @@ import {FileSelectDirective, FileUploader} from 'ng2-file-upload';
 import { CreateProjectComponent } from './mainviewchildren/create-project/create-project.component';
 import {ProjectService} from "./mainviewchildren/create-project/project.service";
 import { ShowProjectsComponent } from './mainviewchildren/show-projects/show-projects.component';
+import { ProjectFilesComponent } from './mainviewchildren/project-files/project-files.component';
+import {FileService} from "./mainviewchildren/project-files/file.service";
+import { UserFilesComponent } from './mainviewchildren/user-files/user-files.component';
 
 
 @NgModule({
@@ -40,7 +43,9 @@ import { ShowProjectsComponent } from './mainviewchildren/show-projects/show-pro
     TestComponentComponent,
     FileSelectDirective,
     CreateProjectComponent,
-    ShowProjectsComponent
+    ShowProjectsComponent,
+    ProjectFilesComponent,
+    UserFilesComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,7 @@ import { ShowProjectsComponent } from './mainviewchildren/show-projects/show-pro
     ReactiveFormsModule,
     Ng2UploaderModule
   ],
-  providers: [AuthService,ProjectService],
+  providers: [AuthService,ProjectService,FileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

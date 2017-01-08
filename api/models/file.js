@@ -3,13 +3,15 @@ var Schema = mongoose.Schema;
 var mongooseUniqueValidator = require('mongoose-unique-validator');
 
 var schema = new Schema({
-  fileName: {type: String, required: true},
-  fileType: {type: String, required: true},
-  time: {type: Date, required: true},
-  project: {type: Schema.Types.ObjectId, ref: 'Project'},
-  user: {type: Schema.Types.ObjectId, ref: 'User'}
+  fullFileName: {type: String, required: true},
+  fileExtension: {type: String, required: true},
+  fileProject: {type: String, required: true},
+  fileUser: {type: String, required: true},
+  size: {type: Number, required: true},
+  fileDate: {type: String, required: true}
+
 });
 
 schema.plugin(mongooseUniqueValidator);
 
-module.exports = mongoose.model('File', schema);
+module.exports = mongoose.model('FileModel', schema);

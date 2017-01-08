@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <h3 class="page-header">
-        My <small>Profile</small>
+        User<small>Profile</small>
       </h3>
     </div>
   </div>
@@ -23,8 +23,8 @@
               <td>Cad Company</td>
             </tr>
             <tr>
-              <th><strong>Project</strong></th>
-              <td>Project link</td>
+              <th><strong>Files</strong></th>
+              <td><a [routerLink]="['/main','user-files',user.userName]"> Files' list</a></td>
             </tr>
             <tr>
               <th><strong>Contact</strong></th>

@@ -10,6 +10,8 @@ var mongoose = require('mongoose');
 var userRoutes = require('./routes/user');
 var uploadRoutes = require('./routes/upload');
 var projectRoutes = require('./routes/project');
+var fileUploadRoutes = require('./routes/fileupload');
+var uploadFileRoutes = require('./routes/upload-file');
 
 var app = express();
 mongoose.connect('localhost:27017/cadmanager');
@@ -39,6 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/user', userRoutes);
 app.use('/upload', uploadRoutes);
 app.use('/project', projectRoutes);
+app.use('/fileupload', fileUploadRoutes);
+app.use('/upload-file', uploadFileRoutes);
 
 
 
