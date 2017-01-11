@@ -24,6 +24,7 @@
     "chart.js": "^2.3.0",
     "core-js": "^2.4.1",
     "jquery": "^2.2.4",
+    "live-server": "^1.1.0",
     "ng2-charts": "^1.4.1",
     "ng2-file-upload": "^1.1.4-2",
     "ng2-uploader": "^1.5.3",

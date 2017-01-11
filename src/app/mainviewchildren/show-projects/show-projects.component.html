@@ -33,9 +33,9 @@
                 *ngFor="let project of projects">
               <td class="sorting_1">
                 <div class="table__avatar">
-                  <img *ngIf="project.projectType==='Construction'" src="http://127.0.0.1:8080/api/project-images/construction.png" alt="...">
-                  <img *ngIf="project.projectType==='Calculation'" src="http://127.0.0.1:8080/api/project-images/calculation.png" alt="...">
-                  <img *ngIf="project.projectType==='Drawing'" src="http://127.0.0.1:8080/api/project-images/drawing.jpg" alt="...">
+                  <img *ngIf="project.projectType==='Construction'" src="http://127.0.0.1:8080/project-images/construction.png" alt="...">
+                  <img *ngIf="project.projectType==='Calculation'" src="http://127.0.0.1:8080/project-images/calculation.png" alt="...">
+                  <img *ngIf="project.projectType==='Drawing'" src="http://127.0.0.1:8080/project-images/drawing.jpg" alt="...">
                 </div>
                 <strong><a [routerLink]="['/main','project-files',project.projectName]">{{project.projectName}}</a></strong>
               </td>
