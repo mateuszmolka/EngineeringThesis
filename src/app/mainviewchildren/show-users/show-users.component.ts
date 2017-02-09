@@ -30,6 +30,7 @@ export class ShowUsersComponent implements OnInit {
           console.log(this.users);
         }
       );
+
     this.authService.getCurrentUser()
       .subscribe((data)=>{
         //noinspection TypeScriptUnresolvedVariable

@@ -7,7 +7,7 @@ import {Project} from "./project.model";
 export class ProjectService {
   constructor(private _http: Http) { }
 
-  createUser(project: Project){
+  createProject(project: Project){
     console.log(project);
     const body = JSON.stringify(project);
     const headers = new Headers({'Content-Type': 'application/json'});
@@ -15,6 +15,8 @@ export class ProjectService {
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }
+  
+
   getProjects(){
     return this._http.get('http://localhost:3000/project/getprojects')
       .map((response: Response) => {

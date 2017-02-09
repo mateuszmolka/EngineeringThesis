@@ -19,8 +19,6 @@ export class CreateUserComponent implements OnInit {
 
 
   onSubmit() {
-    console.log(this.uploader.queue[0].file.name.split('.')[0]);
-    console.log(this.uploader.queue[0].file.name.split('.')[1]);
     const user = new User(
       this.myForm.value.firstName,
       this.myForm.value.lastName,

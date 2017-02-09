@@ -52,7 +52,7 @@
         <a routerLinkActive="active" [routerLink]="['user-show']"><i class="fa fa-user"></i> Designers</a>
       </li>
       <li>
-        <a routerLinkActive="active" [routerLink]="['user-create']"><i class="fa fa-user"></i> New designer</a>
+        <a *ngIf="isMaster" routerLinkActive="active" [routerLink]="['user-create']"><i class="fa fa-user"></i> New designer</a>
       </li>
       <!-- Projects -->
       <li class="sidebar-nav__heading">PROJETS</li>
@@ -60,7 +60,7 @@
         <a routerLinkActive="active" [routerLink]="['project-show']"><i class="fa fa-table"></i> Projects <i class="fa"></i></a>
       </li>
       <li>
-        <a routerLinkActive="active" [routerLink]="['project-create']"><i class="fa fa-table"></i> Add project <i class="fa"></i></a>
+        <a *ngIf="isMaster" routerLinkActive="active" [routerLink]="['project-create']"><i class="fa fa-table"></i> Add project <i class="fa"></i></a>
       </li>
     </ul>
   </nav>

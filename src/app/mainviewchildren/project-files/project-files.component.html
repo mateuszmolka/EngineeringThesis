@@ -11,11 +11,11 @@
             <div class="col-md-12">
 
               <h3>File Upload Section</h3>
-              <input type="file" ng2FileSelect [uploader]="uploader" multiple [disabled]="uploader.queue.length" /><br/>
+              <input type="file" ng2FileSelect [uploader]="uploader"
+                     multiple [disabled]="uploader.queue.length" /><br/>
             </div>
 
             <div class="col-md-8" style="margin-bottom: 40px">
-
               <table class="table">
                 <thead>
                 <tr>
@@ -95,7 +95,7 @@
                         : activate to sort column ascending" style="width: 276px;">
                 Download
               </th>
-              <th class="sorting" tabindex="0" aria-controls="datatables__example" rowspan="1" colspan="1" aria-label="
+              <th *ngIf="isMaster" class="sorting" tabindex="0" aria-controls="datatables__example" rowspan="1" colspan="1" aria-label="
                           Account type
                         : activate to sort column ascending" style="width: 276px;">
                 Delete

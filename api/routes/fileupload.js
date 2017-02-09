@@ -29,23 +29,23 @@ router.post('/create', function(req, res, next){
   })
 });
 
-router.get('/getfiles/:fileProject', function (req, res, next) {
-  var fileProject= req.params.fileProject;
+  router.get('/getfiles/:fileProject', function (req, res, next) {
+    var fileProject= req.params.fileProject;
 
-  FileModel.find({fileProject: fileProject},function (err,files) {
-    if(err){
-      return res.status(500).json({
-        title: 'An error occured',
-        error: err
-      });
-    }
-    res.status(200).json({
-      message:'Success',
-      obj: files
+    FileModel.find({fileProject: fileProject},function (err,files) {
+      if(err){
+        return res.status(500).json({
+          title: 'An error occured',
+          error: err
+        });
+      }
+      res.status(200).json({
+        message:'Success',
+        obj: files
+      })
     })
-  })
 
-});
+  });
 
 router.get('/getfilesuser/:userName', function (req, res, next) {
   var userName= req.params.userName;
@@ -65,15 +65,15 @@ router.get('/getfilesuser/:userName', function (req, res, next) {
 
 });
 
-router.get('/download/:fullFileName/:fileProject', function (req, res, next) {
-  var fileProject= req.params.fileProject;
-  var fullFileName= req.params.fullFileName;
-  var file= DIR+fileProject+ '/'+fullFileName;
-  console.log(file);
-  res.download(file);
+  router.get('/download/:fullFileName/:fileProject', function (req, res, next) {
+    var fileProject= req.params.fileProject;
+    var fullFileName= req.params.fullFileName;
+    var file= DIR+fileProject+ '/'+fullFileName;
+    console.log(file);
+    res.download(file);
 
 
-});
+  });
 
 
 

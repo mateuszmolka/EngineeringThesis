@@ -12,36 +12,33 @@ import {ProjectFilesComponent} from "./project-files/project-files.component";
 import {UserFilesComponent} from "./user-files/user-files.component";
 
 
-export const MAIN_ROUTES: Routes = [
-  { path: '',
-    redirectTo: 'welcome',
-    pathMatch: 'full' },
-  { path: 'welcome',
-    component: WelcomePageComponent },
-  { path: 'user-create',
-    component: CreateUserComponent },
-  { path: 'user-current',
-    component: UserComponent },
-  { path: 'user-show',
-    component: ShowUsersComponent },
-  { path: 'user-profile/:username',
-    component: UserProfileComponent
-    },
-  { path: 'project-create',
-    component: CreateProjectComponent
-  },
-  { path: 'project-show',
-    component: ShowProjectsComponent
-  },
-  { path: 'user-files/:fileUser',
-    component: UserFilesComponent
-  },
-  { path: 'project-files/:projectName',
-    component: ProjectFilesComponent
-  },
-  { path: '**',
-   component: PageNotFoundComponent }
-
-
-  // { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES }
-];
+    export const MAIN_ROUTES: Routes = [
+      { path: '',
+        redirectTo: 'welcome',
+        pathMatch: 'full' },
+      { path: 'welcome',
+        component: WelcomePageComponent },
+      { path: 'user-create',
+        component: CreateUserComponent },
+      { path: 'user-current',
+        component: UserComponent },
+      { path: 'user-show',
+        component: ShowUsersComponent },
+      { path: 'user-profile/:username',
+        component: UserProfileComponent
+        },
+      { path: 'project-create',
+        component: CreateProjectComponent
+      },
+      { path: 'project-show',
+        component: ShowProjectsComponent
+      },
+      { path: 'user-files/:fileUser',
+        component: UserFilesComponent
+      },
+      { path: 'project-files/:projectName',
+        component: ProjectFilesComponent
+      },
+      { path: '**',
+       component: PageNotFoundComponent }
+    ];

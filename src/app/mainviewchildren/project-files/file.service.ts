@@ -64,7 +64,8 @@ export class FileService {
     var fileUser= file.fileUser;
     var fileDate= file.fileDate;
     var fileProject= file.fileProject;
-    return this._http.delete('http://localhost:3000/fileupload/delete/' + fullFileName + "/"+ fileUser + "/"+ fileDate+ "/"+ fileProject)
+    return this._http.delete('http://localhost:3000/fileupload/delete/' +
+      fullFileName + "/"+ fileUser + "/"+ fileDate+ "/"+ fileProject)
       .map((response: Response) => response.json())
       .catch((error: Response) => Observable.throw(error.json()));
   }

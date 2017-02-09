@@ -56,7 +56,9 @@ export class ProjectFilesComponent implements OnInit {
 
   onUpload(){
     for (let item of this.uploader.queue){
-      if(item.file.name.split('.')[1]!=="CATPart" && item.file.name.split('.')[1]!=="CATProduct" && item.file.name.split('.')[1]!=="dwg"){
+      if(item.file.name.split('.')[1]!=="CATPart" &&
+        item.file.name.split('.')[1]!=="CATProduct" &&
+        item.file.name.split('.')[1]!=="dwg"){
         this.wrongUpload=true;
       }
     }
@@ -86,14 +88,18 @@ export class ProjectFilesComponent implements OnInit {
     }
 
   }
+
   onDownload(file: FileModel){
     var path= "http://localhost:3000/fileupload/download/"+file.fullFileName+"/"+file.fileProject;
     window.open(path);
   }
+
+
   onFinish(){
     this.correctUpload=false;
     this.wrongUpload=false;
   }
+
   onDelete(file: FileModel){
     var accept= confirm("Are you sure?");
     if(accept){

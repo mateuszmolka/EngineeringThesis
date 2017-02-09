@@ -8,66 +8,63 @@ var jwt = require('jsonwebtoken');
 var rmdir = require('rmdir');
 var DIR = "./images/";
 
-router.post('/create', function(req, res, next){
-    console.log(req.body);
-    var user = new User({
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        email: req.body.email,
-        userName: req.body.userName,
-        password: passwordHash.generate(req.body.password),
-        type: req.body.type,
-        imagename: req.body.imagename,
-        imageext: req.body.imageext
-
-
+    router.post('/create', function(req, res, next){
+        console.log(req.body);
+        var user = new User({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            userName: req.body.userName,
+            password: passwordHash.generate(req.body.password),
+            type: req.body.type,
+            imagename: req.body.imagename,
+            imageext: req.body.imageext
+        });
+        user.save(function(err, result){
+            if(err){
+                return res.status(404).json({
+                    title: 'An error occured',
+                    error: err
+                })
+            }
+            res.status(200).json({
+                message: 'success',
+                obj: result
+            })
+        })
     });
 
-    user.save(function(err, result){
-        if(err){
-            return res.status(404).json({
-                title: 'An error occured',
-                error: err
+    router.post('/signin', function(req, res, next){
+        console.log(req.body);
+        User.findOne({email: req.body.email}, function(err, user){
+            if(err){
+                return res.status(404).json({
+                    title: 'An error occured',
+                    error: err
+                });
+            }
+            if(!user){
+                return res.status(404).json({
+                    title: 'no user',
+                    error: {message: 'no user'}
+                });
+            }
+            if(!passwordHash.verify(req.body.password, user.password)){
+                return res.status(404).json({
+                    title: 'invalid pass',
+                    error: {message: 'invalid pass'}
+                })
+            }
+            var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
+            var decoded= jwt.decode(req.query.token);
+            res.status(200).json({
+                message: 'success',
+                token: token,
+                userId: user._id
             })
-        }
-        res.status(200).json({
-            message: 'success',
-            obj: result
-        })
-    })
-});
 
-router.post('/signin', function(req, res, next){
-    console.log(req.body);
-    User.findOne({email: req.body.email}, function(err, user){
-        if(err){
-            return res.status(404).json({
-                title: 'An error occured',
-                error: err
-            });
-        }
-        if(!user){
-            return res.status(404).json({
-                title: 'no user',
-                error: {message: 'no user'}
-            });
-        }
-        if(!passwordHash.verify(req.body.password, user.password)){
-            return res.status(404).json({
-                title: 'invalid pass',
-                error: {message: 'invalid pass'}
-            })
-        }
-        var token = jwt.sign({user: user}, 'secret', {expiresIn: 7200});
-        var decoded= jwt.decode(req.query.token);
-        res.status(200).json({
-            message: 'success',
-            token: token,
-            userId: user._id
         })
-
-    })
-});
+    });
 
 router.get('/currentuser', function (req,res,next) {
   var decoded= jwt.decode(req.query.token);

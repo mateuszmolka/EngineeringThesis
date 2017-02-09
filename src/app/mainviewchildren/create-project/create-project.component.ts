@@ -20,7 +20,7 @@ export class CreateProjectComponent implements OnInit {
       this.myForm.value.projectType,
     );
 
-    this.projectService.createUser(project)
+    this.projectService.createProject(project)
       .subscribe(
         data=>console.log(data),
         error=>console.log(error)
